@@ -233,7 +233,7 @@ h1 {
 }
 
 .product-image {
-    background: url("/images/image-product-1.jpg");
+    background: url("images/image-product-1.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

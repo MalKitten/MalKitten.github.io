@@ -19,7 +19,7 @@ function addEvent(ele, events, active, e) {
                     //let pageBlock = createEle('div', mainEl, [], ['pg-block'], []);
                     pageBlocker.inable();
                     let clone = imgBoxEle.parentNode.cloneNode(true);
-                    let blockExit = createEle('button', clone, [], ['exit-btn'], [['innerHTML', '<img src="/images/icon-close.svg" alt="close the page blocker" width="20">']]);
+                    let blockExit = createEle('button', clone, [], ['exit-btn'], [['innerHTML', '<img src="images/icon-close.svg" alt="close the page blocker" width="20">']]);
                     blockExit.addEventListener('click', () => {pageBlocker.disable(); clone.remove()});
                     document.querySelector('.wrapper').append(clone);
                     clone.append(blockExit);
@@ -201,7 +201,7 @@ function updateCart() {
         let price = document.querySelector('.current-price').innerText;
         let priceVal = price.slice(1);
         createEle('p', cartItemsWapper, [], ['incart-total'], [['innerHTML', `${price} × ${quantity} <span class='bold'>$${(priceVal * quantity).toFixed(2)}</span>`]]);
-        let removeBtn = createEle('button', cartItemsWapper, [], ['incart-remove-btn'], [['innerHTML', "<img src='/images/icon-delete.svg' width='20'>"]]);
+        let removeBtn = createEle('button', cartItemsWapper, [], ['incart-remove-btn'], [['innerHTML', "<img src='images/icon-delete.svg' width='20'>"]]);
         addEvent(removeBtn).removeFromCart();
         createEle('button', cartItems, [], ['checkoutBtn'], [['innerText', 'Checkout']]);
 
@@ -219,15 +219,15 @@ addEvent(imgBoxEle).megnify();
 
 // the imgs arrows 
 const currentImgEle = document.querySelector('.product-image');
-let currentImg = '/images/image-product-1.jpg';
+let currentImg = 'images/image-product-1.jpg';
 const prevImgBtn = document.querySelector('.prev-image');
 const nextImgBtn = document.querySelector('.next-image');
 
 const productImgs = [
-    '/images/image-product-1.jpg',
-    '/images/image-product-2.jpg',
-    '/images/image-product-3.jpg',
-    '/images/image-product-4.jpg',
+    'images/image-product-1.jpg',
+    'images/image-product-2.jpg',
+    'images/image-product-3.jpg',
+    'images/image-product-4.jpg',
 ];
 addEvent(prevImgBtn).changeImg('prev');
 addEvent(nextImgBtn).changeImg('next');

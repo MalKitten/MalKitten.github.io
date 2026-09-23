@@ -16,10 +16,9 @@ function addEvent(ele, events, active, e) {
             ele.addEventListener('click', event => {
                 if (window.innerWidth >= 800 && event.target == document.querySelector('.product-image')) {
                     let mainEl = document.querySelector('main');
-                    //let pageBlock = createEle('div', mainEl, [], ['pg-block'], []);
                     pageBlocker.inable();
                     let clone = imgBoxEle.parentNode.cloneNode(true);
-                    let blockExit = createEle('button', clone, [], ['exit-btn'], [['innerHTML', '<img src="images/icon-close.svg" alt="close the page blocker" width="20">']]);
+                    let blockExit = createEle('button', clone, [['alt', 'close the large image display']], ['exit-btn'], [['innerHTML', '<img src="images/icon-close.svg" alt="close the page blocker" width="20">']]);
                     blockExit.addEventListener('click', () => {pageBlocker.disable(); clone.remove()});
                     document.querySelector('.wrapper').append(clone);
                     clone.append(blockExit);
@@ -76,7 +75,6 @@ function addEvent(ele, events, active, e) {
                         let img = cTN ? cTN[i] : thumbnails[i];
                         img.classList.remove('chosen');
                 }
-                //thumbnails = thumbnails ? thumbnails.children : productThumbnails;
                 thumbnails[currentIndex].classList.add('chosen');
 
                 currentImg = productImgs[currentIndex];
@@ -160,7 +158,6 @@ const pageBlock = document.createElement('div');
 const pageBlocker = {
     inable: () => {
         document.body.append(pageBlock);
-        //forground.style.zIndex = '200';
         pageBlock.classList.add('pg-block');
         pageBlock.classList.add('active');
     } ,
@@ -173,12 +170,12 @@ const pageBlocker = {
 // The nav menu
 const navMenu = document.querySelector(".nav-menu");
 
-addEvent(document.querySelector(".nav-menu-btn"), ["click"], true, navMenu).activate(pageBlocker.inable)//() => navPageBlock.style.display = 'block');
-addEvent(document.querySelector(".close-menu-btn"), ["click"], true, navMenu).activate(pageBlocker.disable)//() => navPageBlock.style.display = 'none');
+addEvent(document.querySelector(".nav-menu-btn"), ["click"], true, navMenu).activate(pageBlocker.inable)
+addEvent(document.querySelector(".close-menu-btn"), ["click"], true, navMenu).activate(pageBlocker.disable)
 
 // the cart
 
-const productName = document.querySelector('h2').innerText;
+const productName = document.querySelector('h1').innerText;
 
 let quantity = window.localStorage.getItem('itemQuantity') || 0;
 if (quantity > 0) {
@@ -201,7 +198,7 @@ function updateCart() {
         let price = document.querySelector('.current-price').innerText;
         let priceVal = price.slice(1);
         createEle('p', cartItemsWapper, [], ['incart-total'], [['innerHTML', `${price} × ${quantity} <span class='bold'>$${(priceVal * quantity).toFixed(2)}</span>`]]);
-        let removeBtn = createEle('button', cartItemsWapper, [], ['incart-remove-btn'], [['innerHTML', "<img src='images/icon-delete.svg' width='20'>"]]);
+        let removeBtn = createEle('button', cartItemsWapper, [], ['incart-remove-btn'], [['innerHTML', "<img src='images/icon-delete.svg' width='20' alt='remove item'>"]]);
         addEvent(removeBtn).removeFromCart();
         createEle('button', cartItems, [], ['checkoutBtn'], [['innerText', 'Checkout']]);
 

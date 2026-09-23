@@ -24,6 +24,7 @@
 }
 
 .wrapper {
+    min-block-size: 850px;
     background-color: var(--primary-white);
     font-family: var(--para-font);
     font-size: 0.9rem;
@@ -444,6 +445,7 @@ footer {
 
 @media screen and (min-width: 800px) {
     .wrapper {
+        min-block-size: 400px;
         inline-size: 90%;
         max-inline-size: 900px;
 
